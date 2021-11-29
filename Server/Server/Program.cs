@@ -23,6 +23,7 @@ namespace Server
 
         protected override void OnOpen()
         {
+            Console.WriteLine("Hello world!");
             base.OnOpen();
         }
     }
