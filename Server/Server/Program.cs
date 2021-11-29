@@ -19,12 +19,13 @@ namespace Server
         protected override void OnMessage(MessageEventArgs e)
         {
             base.OnMessage(e);
+            Console.WriteLine(e.Data);
         }
 
         protected override void OnOpen()
         {
-            Console.WriteLine("Hello world!");
             base.OnOpen();
+            Console.WriteLine("Hello world!");
         }
     }
 
@@ -33,7 +34,7 @@ namespace Server
         static void Main(string[] args)
         {
             var wssv = new WebSocketServer(9001);
-            wssv.AddWebSocketService<SocketServer>("/");
+            wssv.AddWebSocketService<SocketServer>("/Player");
             wssv.Start();
             Console.Read(); //Stops the debugger from exiting run mode
         }
