@@ -34,7 +34,7 @@ namespace Server
         static void Main(string[] args)
         {
             var wssv = new WebSocketServer(9001);
-            wssv.AddWebSocketService<SocketServer>("/Player");
+            wssv.AddWebSocketService<SocketServer>("/");
             wssv.Start();
             Console.Read(); //Stops the debugger from exiting run mode
         }
