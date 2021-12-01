@@ -23,27 +23,12 @@ namespace Photon.Pun.Demo.PunBasics
     {
         #region Public Fields
 
-        [Tooltip("The current Health of our player")]
-        public float Health = 1f;
-
         [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
         public static GameObject LocalPlayerInstance;
 
         #endregion
 
         #region Private Fields
-
-        [Tooltip("The Player's UI GameObject Prefab")]
-        [SerializeField]
-        private GameObject playerUiPrefab;
-
-        [Tooltip("The Beams GameObject to control")]
-        [SerializeField]
-        private GameObject beams;
-
-        //True, when the user is firing
-        bool IsFiring;
-
         #endregion
 
         #region MonoBehaviour CallBacks
@@ -53,15 +38,6 @@ namespace Photon.Pun.Demo.PunBasics
         /// </summary>
         public void Awake()
         {
-            if (this.beams == null)
-            {
-                Debug.LogError("<Color=Red><b>Missing</b></Color> Beams Reference.", this);
-            }
-            else
-            {
-                this.beams.SetActive(false);
-            }
-
             // #Important
             // used in GameManager.cs: we keep track of the localPlayer instance to prevent instanciation when levels are synchronized
             if (photonView.IsMine)
@@ -93,17 +69,6 @@ namespace Photon.Pun.Demo.PunBasics
                 Debug.LogError("<Color=Red><b>Missing</b></Color> CameraWork Component on player Prefab.", this);
             }
 
-            // Create the UI
-            if (this.playerUiPrefab != null)
-            {
-                GameObject _uiGo = Instantiate(this.playerUiPrefab);
-                _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
-            }
-            else
-            {
-                Debug.LogWarning("<Color=Red><b>Missing</b></Color> PlayerUiPrefab reference on player Prefab.", this);
-            }
-
             #if UNITY_5_4_OR_NEWER
             // Unity 5.4 has a new scene management. register a method to call CalledOnLevelWasLoaded.
 			UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
@@ -130,21 +95,6 @@ namespace Photon.Pun.Demo.PunBasics
         /// </summary>
         public void Update()
         {
-            // we only process Inputs and check health if we are the local player
-            if (photonView.IsMine)
-            {
-                this.ProcessInputs();
-
-                if (this.Health <= 0f)
-                {
-                    GameManager.Instance.LeaveRoom();
-                }
-            }
-
-            if (this.beams != null && this.IsFiring != this.beams.activeInHierarchy)
-            {
-                this.beams.SetActive(this.IsFiring);
-            }
         }
 
         /// <summary>
@@ -167,8 +117,6 @@ namespace Photon.Pun.Demo.PunBasics
             {
                 return;
             }
-
-            this.Health -= 0.1f;
         }
 
         /// <summary>
@@ -190,9 +138,6 @@ namespace Photon.Pun.Demo.PunBasics
             {
                 return;
             }
-
-            // we slowly affect health when beam is constantly hitting us, so player has to move to prevent death.
-            this.Health -= 0.1f*Time.deltaTime;
         }
 
 
@@ -218,9 +163,6 @@ namespace Photon.Pun.Demo.PunBasics
             {
                 transform.position = new Vector3(0f, 5f, 0f);
             }
-
-            GameObject _uiGo = Instantiate(this.playerUiPrefab);
-            _uiGo.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
         }
 
         #endregion
@@ -238,31 +180,6 @@ namespace Photon.Pun.Demo.PunBasics
         /// <summary>
         /// Processes the inputs. This MUST ONLY BE USED when the player has authority over this Networked GameObject (photonView.isMine == true)
         /// </summary>
-        void ProcessInputs()
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                // we don't want to fire when we interact with UI buttons for example. IsPointerOverGameObject really means IsPointerOver*UI*GameObject
-                // notice we don't use on on GetbuttonUp() few lines down, because one can mouse down, move over a UI element and release, which would lead to not lower the isFiring Flag.
-                if (EventSystem.current.IsPointerOverGameObject())
-                {
-                    //	return;
-                }
-
-                if (!this.IsFiring)
-                {
-                    this.IsFiring = true;
-                }
-            }
-
-            if (Input.GetButtonUp("Fire1"))
-            {
-                if (this.IsFiring)
-                {
-                    this.IsFiring = false;
-                }
-            }
-        }
 
         #endregion
 
@@ -270,18 +187,7 @@ namespace Photon.Pun.Demo.PunBasics
 
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
-            if (stream.IsWriting)
-            {
-                // We own this player: send the others our data
-                stream.SendNext(this.IsFiring);
-                stream.SendNext(this.Health);
-            }
-            else
-            {
-                // Network player, receive data
-                this.IsFiring = (bool)stream.ReceiveNext();
-                this.Health = (float)stream.ReceiveNext();
-            }
+
         }
 
         #endregion

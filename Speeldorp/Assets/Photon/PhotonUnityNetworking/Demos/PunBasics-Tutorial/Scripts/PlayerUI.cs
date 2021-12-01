@@ -73,12 +73,6 @@ namespace Photon.Pun.Demo.PunBasics
 				Destroy(this.gameObject);
 				return;
 			}
-
-
-			// Reflect the Player Health
-			if (playerHealthSlider != null) {
-				playerHealthSlider.value = target.Health;
-			}
 		}
 
 		/// <summary>
