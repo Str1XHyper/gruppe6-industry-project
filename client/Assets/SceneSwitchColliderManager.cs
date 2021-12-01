@@ -7,14 +7,20 @@ public class SceneSwitchColliderManager : MonoBehaviour
 {
     [SerializeField] private float timerInSeconds;
     [SerializeField] private string sceneToLoad;
+    private float timeLeft;
+
+    public void Start()
+    {
+        timeLeft = timerInSeconds;
+    }
     public void OnTriggerStay(Collider coll)
     {
         Debug.Log(coll.gameObject.name);
         if (coll.gameObject.tag == "Player")
         {
-            timerInSeconds -= Time.deltaTime;
-            Debug.Log(timerInSeconds);
-            if (timerInSeconds <= 0f)
+            timeLeft -= Time.deltaTime;
+            Debug.Log(timeLeft);
+            if (timeLeft <= 0f)
             {
                 MoveScene();
             }
@@ -24,5 +30,14 @@ public class SceneSwitchColliderManager : MonoBehaviour
     void MoveScene()
     { 
         SceneManager.LoadScene(sceneToLoad);
+    }
+
+    public void OnTriggerExit(Collider coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            timeLeft = timerInSeconds;
+            Debug.Log(timeLeft);
+        }
     }
 }
