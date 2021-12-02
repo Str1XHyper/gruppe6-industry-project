@@ -11,12 +11,16 @@ public class ObjectSpawner : MonoBehaviour
 
     void Start()
     {
-        PhotonNetwork.Instantiate(item.name, transform.position, Quaternion.identity, 0);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject sphere = PhotonNetwork.InstantiateRoomObject(item.name, transform.position, Quaternion.identity, 0);
+            
+        }
     }
 }
