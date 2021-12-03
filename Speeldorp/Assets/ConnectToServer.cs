@@ -10,6 +10,9 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     [Tooltip("The maximum number of players per room. When a room is full, it can't be joined by new players, and so new room will be created")]
     [SerializeField]
     private byte maxPlayersPerRoom = 4;
+
+    [SerializeField]
+    private string loadIntoScene = "Dorp";
     #endregion
 
 
@@ -106,7 +109,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
-        PhotonNetwork.LoadLevel("Dorp");
+        PhotonNetwork.LoadLevel(loadIntoScene);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
