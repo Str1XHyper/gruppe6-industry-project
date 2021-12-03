@@ -8,10 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Julian.unity
     guid: da318a73ff351864e894c489a80109b2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Julian2.unity
     guid: d9550d0ec48b429479a05a28e74bb8d6
+    path: Assets/Scenes/Loading.unity
+    guid: 0152e0fd7d62e7049b5af1b9191da3c0
+  - enabled: 1
+    path: Assets/Scenes/Dorp.unity
+    guid: d2ecd2f93733caa46b72ee1790ebcb19
+  - enabled: 1
+    path: Assets/Scenes/Tijn.unity
+    guid: 0e59e7d34f86fab43901c861c6aefd50
   m_configObjects: {}
