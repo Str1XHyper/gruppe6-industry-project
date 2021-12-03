@@ -152,7 +152,8 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.DefaultCompany.Speeldorp
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -698,7 +699,7 @@ PlayerSettings:
   cloudProjectId: 175cb44a-95aa-41f1-a411-3dfffc7303ce
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Speeldorp (1)
+  projectName: Speeldorp
   organizationId: str1xhyper
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
