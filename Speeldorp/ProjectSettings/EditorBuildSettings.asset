@@ -8,7 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/Julian.unity
+    guid: da318a73ff351864e894c489a80109b2
+  - enabled: 0
+    path: Assets/Scenes/Julian2.unity
+    guid: d9550d0ec48b429479a05a28e74bb8d6
     path: Assets/Scenes/Loading.unity
     guid: 0152e0fd7d62e7049b5af1b9191da3c0
   - enabled: 1
