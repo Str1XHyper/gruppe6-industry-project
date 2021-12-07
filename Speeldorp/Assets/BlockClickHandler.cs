@@ -10,6 +10,8 @@ public class BlockClickHandler : MonoBehaviour
     private GameObject currentTarget;
     public Rigidbody targetRigidBody;
     private bool isHolding = false;
+    private PhotonView photonView;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,22 +22,10 @@ public class BlockClickHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (InputManager.instance.GetBlockInteractStart() && !isHolding)
         {
-            Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.CompareTag("Movable"))
-                {
-                    currentTarget = hit.transform.gameObject;
-                    targetRigidBody = currentTarget.GetComponent<Rigidbody>();
-                    targetRigidBody.velocity = Vector3.zero;
-                    targetRigidBody.useGravity = false;
-                    isHolding = true;
-                }
-
-            }
+            SelectBlockToMove();
         }
 
         if (currentTarget != null)
@@ -45,12 +35,53 @@ public class BlockClickHandler : MonoBehaviour
 
         if (currentTarget != null && !InputManager.instance.GetBlockInteractHolding())
         {
-            targetRigidBody.useGravity = true;
-            targetRigidBody.velocity = Vector3.zero;
-            targetRigidBody = null;
-            currentTarget = null;
-            isHolding = false;
+            StopMoving();
         }
+    }
+
+    private void SelectBlockToMove()
+    {
+        Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.CompareTag("Movable") && hit.transform.GetComponent<Movable>().Available)
+            {
+                photonView = hit.transform.GetComponent<PhotonView>();
+
+                if (photonView.IsMine)
+                {
+                    StartMovingBlock(hit);
+                }
+                else
+                {
+                    //Request Takeover
+                    photonView.TransferOwnership(PhotonNetwork.LocalPlayer.ActorNumber);
+                    StartMovingBlock(hit);
+                }
+
+            }
+        }
+    }
+
+    private void StartMovingBlock(RaycastHit hit)
+    {
+        currentTarget = hit.transform.gameObject;
+        targetRigidBody = currentTarget.GetComponent<Rigidbody>();
+        targetRigidBody.velocity = Vector3.zero;
+        targetRigidBody.useGravity = false;
+        isHolding = true;
+        hit.transform.GetComponent<Movable>().SetAvailableFalse();
+    }
+
+    private void StopMoving()
+    {
+        currentTarget.GetComponent<Movable>().SetAvailableTrue();
+        targetRigidBody.useGravity = true;
+        targetRigidBody.velocity = Vector3.zero;
+        targetRigidBody = null;
+        currentTarget = null;
+        isHolding = false;
     }
 
     private void MoveTarget()
