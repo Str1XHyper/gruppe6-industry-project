@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SoundBlock
   - EmptyBlock
+  - SelectableBlock
   layers:
   - Default
   - TransparentFX

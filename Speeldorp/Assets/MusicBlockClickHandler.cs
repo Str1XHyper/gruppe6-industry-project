@@ -5,14 +5,12 @@ using UnityEngine.UIElements;
 
 public class MusicBlockClickHandler : MonoBehaviour
 {
-    public List<GameObject> SoundBlocks;
-    private int currentBlockCount;
     [SerializeField] private Camera main;
-    private GameObject selectedBlock;
+    [SerializeField] private GameObject selectedBlock;
 
     public void Start()
     {
-        currentBlockCount = -1;
+
         selectedBlock = null;
     }
 
@@ -21,28 +19,27 @@ public class MusicBlockClickHandler : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            
+
             Ray ray = main.ScreenPointToRay(Input.mousePosition);
             Debug.Log(ray.origin);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 if (hit.transform.CompareTag("SoundBlock"))
                 {
-                    if (currentBlockCount < SoundBlocks.Count - 1)
+                    if (selectedBlock != null)
                     {
-                        if (selectedBlock != null)
-                        {
-                            Destroy(selectedBlock);
-                        }
-                        currentBlockCount++;
-                        var block = Instantiate(SoundBlocks[currentBlockCount], hit.transform.position, Quaternion.identity);
-                        hit.transform.gameObject.GetComponent<BoxCollider>().enabled = false;
-                        hit.transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
-                        block.transform.SetParent(hit.transform.parent);
-                        selectedBlock = block;
+                        Destroy(hit.transform.parent.GetChild(hit.transform.parent.childCount -1));
                     }
+                    var block = Instantiate(selectedBlock, hit.transform.position, Quaternion.identity);
+                    hit.transform.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    hit.transform.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                    block.transform.SetParent(hit.transform.parent);
                 }
             }
         }
+    }
+    public void SelectBlock(GameObject block)
+    {
+        selectedBlock = block;
     }
 }
