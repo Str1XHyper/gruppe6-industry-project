@@ -7,6 +7,5 @@ public class Movable : MonoBehaviour
     public void UpdatePosition(Vector3 newPosition)
     {
         transform.position = newPosition;
-        
     }
 }
