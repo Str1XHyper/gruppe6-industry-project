@@ -28,7 +28,7 @@ public class MusicBlockClickHandler : MonoBehaviour
                 {
                     if (selectedBlock != null)
                     {
-                        Destroy(hit.transform.parent.GetChild(hit.transform.parent.childCount -1));
+                        Destroy(hit.transform.parent.GetChild(hit.transform.parent.childCount -1).gameObject);
                     }
                     var block = Instantiate(selectedBlock, hit.transform.position, Quaternion.identity);
                     hit.transform.gameObject.GetComponent<BoxCollider>().enabled = false;

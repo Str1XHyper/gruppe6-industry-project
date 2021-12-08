@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ public class MusicPlayerController : MonoBehaviour
     [SerializeField] private Transform startPoint;
     private bool isPlaying = false;
     private List<GameObject> soundBlocks = new List<GameObject>();
+    
 
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class MusicPlayerController : MonoBehaviour
             if (transform.position.x == endPoint.position.x)
             {
                 transform.position = new Vector3(startPoint.position.x, transform.position.y, transform.position.z);
+                soundBlocks.RemoveRange(0, soundBlocks.Count);
             }
         }
     }
@@ -40,12 +43,21 @@ public class MusicPlayerController : MonoBehaviour
         if (hits.Any())
         {
             Debug.Log(hits[0].transform.tag);
+            Debug.Log(hits[1].transform.tag);
             foreach (var hit in hits)
             {
-                if (hit.transform.CompareTag("SoundBlock"))
+                if (hit.transform.CompareTag("SoundBlock") && !soundBlocks.Contains(hit.transform.gameObject))
                 {
                     soundBlocks.Add(hit.transform.gameObject);
-                    hit.transform.gameObject.GetComponent<SoundBlockManager>().PlaySound();
+                    try
+                    {
+                        hit.transform.gameObject.GetComponent<SoundBlockManager>().PlaySound();
+                    }
+
+                    catch (NullReferenceException ex)
+                    {
+
+                    }
                 }
             }
         }

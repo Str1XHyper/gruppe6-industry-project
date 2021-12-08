@@ -15,7 +15,6 @@ public class SoundBlockManager : MonoBehaviour
 
     public void PlaySound()
     {
-
         audioSource.clip = clips[Random.Range(0, clips.Count)];
         audioSource.Play();
     }
