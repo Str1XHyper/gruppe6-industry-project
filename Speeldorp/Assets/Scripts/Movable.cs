@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Movable : MonoBehaviour
 {
+    PhotonView photonView;
     public bool Available { get; private set; } = true;
+
+    private void Awake()
+    {
+        photonView = PhotonView.Get(this);
+    }
 
     public void UpdatePosition(Vector3 newPosition)
     {
@@ -13,11 +20,17 @@ public class Movable : MonoBehaviour
 
     public void SetAvailableTrue()
     {
-        Available = true;
+        photonView.RPC("SetAvailableStatePun", RpcTarget.All, true);
     }
 
     public void SetAvailableFalse()
     {
-        Available = false;
+        photonView.RPC("SetAvailableStatePun", RpcTarget.All, false);
+    }
+
+    [PunRPC]
+    private void SetAvailableStatePun(bool state)
+    {
+        Available = state;
     }
 }

@@ -45,7 +45,7 @@ public class BlockClickHandler : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.CompareTag("Movable") && hit.transform.GetComponent<Movable>().Available)
+            if (hit.transform.CompareTag("Movable") && hit.transform.GetComponent<Movable>().Available == true)
             {
                 photonView = hit.transform.GetComponent<PhotonView>();
 
@@ -72,11 +72,13 @@ public class BlockClickHandler : MonoBehaviour
         targetRigidBody.useGravity = false;
         isHolding = true;
         hit.transform.GetComponent<Movable>().SetAvailableFalse();
+        Debug.Log("Available: " + hit.transform.GetComponent<Movable>().Available);
     }
 
     private void StopMoving()
     {
         currentTarget.GetComponent<Movable>().SetAvailableTrue();
+        Debug.Log("Available: " + currentTarget.transform.GetComponent<Movable>().Available);
         targetRigidBody.useGravity = true;
         targetRigidBody.velocity = Vector3.zero;
         targetRigidBody = null;
