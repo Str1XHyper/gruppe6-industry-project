@@ -38,7 +38,7 @@ public class MusicPlayerController : MonoBehaviour
     void Play()
     {
         var ray = new Ray(transform.position, transform.TransformDirection(Vector3.down) * length);
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 10, Color.green);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * length, Color.green);
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(endPoint.position.x, transform.position.y, transform.position.z), speed);
         var hits = Physics.RaycastAll(ray);
         if (hits.Any())
