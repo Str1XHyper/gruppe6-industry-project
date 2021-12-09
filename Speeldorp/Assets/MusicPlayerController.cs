@@ -9,6 +9,7 @@ public class MusicPlayerController : MonoBehaviour
     [SerializeField] private int length;
     [SerializeField] private Transform endPoint;
     [SerializeField] private Transform startPoint;
+    [SerializeField] private float speed;
     private bool isPlaying = false;
     private List<GameObject> soundBlocks = new List<GameObject>();
     
@@ -38,7 +39,7 @@ public class MusicPlayerController : MonoBehaviour
     {
         var ray = new Ray(transform.position, transform.TransformDirection(Vector3.down) * length);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 10, Color.green);
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(endPoint.position.x, transform.position.y, transform.position.z), 0.05f);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(endPoint.position.x, transform.position.y, transform.position.z), speed);
         var hits = Physics.RaycastAll(ray);
         if (hits.Any())
         {

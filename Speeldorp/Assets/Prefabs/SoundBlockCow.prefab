@@ -113,6 +113,9 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 9b8eadc4de0544646b75ddcc43f8fd06, type: 2}
   clips:
   - {fileID: 8300000, guid: bf44d78610d9bed43ad6aa4d1e38ce9f, type: 3}
+  - {fileID: 8300000, guid: 43cb7d3e453aed24cb0566882101b1c4, type: 3}
+  - {fileID: 8300000, guid: 07d176db6c6e43541afa3811364e0473, type: 3}
+  - {fileID: 8300000, guid: f768039fe42eb6b4392d588ab33ca2eb, type: 3}
   audioSource: {fileID: 8544899738300782257}
 --- !u!82 &8544899738300782257
 AudioSource:
