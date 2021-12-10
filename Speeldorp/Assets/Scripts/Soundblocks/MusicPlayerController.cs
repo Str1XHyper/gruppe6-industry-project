@@ -38,13 +38,10 @@ public class MusicPlayerController : MonoBehaviour
     void Play()
     {
         var ray = new Ray(transform.position, transform.TransformDirection(Vector3.down) * length);
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * length, Color.green);
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(endPoint.position.x, transform.position.y, transform.position.z), speed);
         var hits = Physics.RaycastAll(ray);
         if (hits.Any())
         {
-            Debug.Log(hits[0].transform.tag);
-            Debug.Log(hits[1].transform.tag);
             foreach (var hit in hits)
             {
                 if (hit.transform.CompareTag("SoundBlock") && !soundBlocks.Contains(hit.transform.gameObject))

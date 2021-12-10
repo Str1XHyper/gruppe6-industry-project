@@ -15,8 +15,7 @@ public class MusicBlockSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 200 * Time.deltaTime, 0));
-
+        transform.Rotate(0, 0, -100 * Time.deltaTime);
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
