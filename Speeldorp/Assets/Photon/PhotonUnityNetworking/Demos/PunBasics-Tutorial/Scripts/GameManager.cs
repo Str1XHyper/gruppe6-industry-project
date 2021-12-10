@@ -10,7 +10,6 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 using Photon.Realtime;
 
 namespace Photon.Pun.Demo.PunBasics
@@ -87,10 +86,12 @@ namespace Photon.Pun.Demo.PunBasics
 		void Update()
 		{
 			// "back" button of phone equals "Escape". quit app if that's pressed
-			if (Input.GetKeyDown(KeyCode.Escape))
+			/*
+			if (Input.GetKeyDown(KeyCode.Escape)) 
 			{
 				QuitApplication();
 			}
+			*/
 		}
 
         #endregion

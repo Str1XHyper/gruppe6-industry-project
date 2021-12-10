@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayersPerRoom: 30
-  loadIntoScene: Tijn
+  loadIntoScene: PhysicsBlocks
 --- !u!4 &170643820
 Transform:
   m_ObjectHideFlags: 0

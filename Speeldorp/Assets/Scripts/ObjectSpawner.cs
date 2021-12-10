@@ -20,7 +20,6 @@ public class ObjectSpawner : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             GameObject sphere = PhotonNetwork.InstantiateRoomObject(item.name, transform.position, Quaternion.identity, 0);
-            
         }
     }
 }
