@@ -19,6 +19,13 @@ public class AvatarCustomizationManager : MonoBehaviour
     public RawImage iconImage;
     public int iconindex;
 
+    [Header("Accessories")]
+    [SerializeField]
+    private List<Texture> accessories;
+    public RawImage accessorypreview;
+    public RawImage accessoryImage;
+    public int accindex;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +36,19 @@ public class AvatarCustomizationManager : MonoBehaviour
     {
         SetColors();
         SetIcons();
+        SetAccessories();
     }
 
     private void SetIcons()
     {
         iconpreview.texture = icons[iconindex];
         iconImage.texture = iconpreview.texture;
+    }
+
+    private void SetAccessories()
+    {
+        accessorypreview.texture = accessories[accindex];
+        accessoryImage.texture = accessorypreview.texture;
     }
 
     private void SetColors()
@@ -45,7 +59,7 @@ public class AvatarCustomizationManager : MonoBehaviour
     
     public void ChangeIcon(bool next)
     {
-        //Check if the next option is true, otherwhise it will go to the previous color
+        //Check if the next option is true, otherwhise it will go to the previous icon
         if (next)
         {
             iconindex++;
@@ -90,6 +104,7 @@ public class AvatarCustomizationManager : MonoBehaviour
     {
         colorindex = Random.Range(0, (backgroundColors.Count));
         iconindex = Random.Range(0, (icons.Count));
+        accindex = Random.Range(0, (accessories.Count));
         InitializeSetup();
     }
 
