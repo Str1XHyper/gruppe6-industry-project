@@ -14,14 +14,13 @@ public class AudioClickHandler : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            var hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition));
-            Debug.Log(hits.Length);
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.transform.CompareTag("SoundBlock"))
                 {
+                    StartCoroutine(hit.transform.gameObject.GetComponent<ParticleEmitter>().Emit());
                     source.clip = hit.transform.gameObject.GetComponent<CollisionClickHandler>().clip;
                     source.Play();
                 }
