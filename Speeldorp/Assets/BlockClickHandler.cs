@@ -8,7 +8,7 @@ public class BlockClickHandler : MonoBehaviour
 {
     Camera camera;
     private GameObject currentTarget;
-    public Rigidbody targetRigidBody;
+    private Rigidbody targetRigidBody;
     private bool isHolding = false;
     private PhotonView photonView;
 
@@ -22,12 +22,14 @@ public class BlockClickHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (InputManager.instance.GetBlockInteractStart() && !isHolding)
         {
             SelectBlockToMove();
         }
+    }
 
+    private void FixedUpdate()
+    {
         if (currentTarget != null)
         {
             MoveTarget();
@@ -80,7 +82,7 @@ public class BlockClickHandler : MonoBehaviour
         currentTarget.GetComponent<Movable>().SetAvailableTrue();
         Debug.Log("Available: " + currentTarget.transform.GetComponent<Movable>().Available);
         targetRigidBody.useGravity = true;
-        targetRigidBody.velocity = Vector3.zero;
+        //targetRigidBody.velocity = Vector3.zero;
         targetRigidBody = null;
         currentTarget = null;
         isHolding = false;
