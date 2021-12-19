@@ -9,6 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 0
+    path: Assets/Photon/PhotonVoice/Demos/DemoVoicePun/DemoVoicePun-Scene.unity
+    guid: a3f3c3b3816924199acba595045624d2
     path: Assets/Scenes/Julian.unity
     guid: da318a73ff351864e894c489a80109b2
   - enabled: 0
