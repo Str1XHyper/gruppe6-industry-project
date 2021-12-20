@@ -1,0 +1,98 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "2fd3be92-84e8-4dd7-82f8-049d8a7b11f5",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "d6b44d69-9a15-49e8-aaa0-fd99f45f320c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9374756b-2aad-40aa-a120-e33c22f0ac23",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce935bf4-9e80-4f9c-a54b-9936495b0423",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Blocks",
+            "id": "32cd2f9e-6add-429e-8675-880633ace6cc",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "PassThrough",
+                    "id": "4b1aed30-551f-4ad7-916d-e744a8dfe550",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9a539c2e-2fd9-42f0-8ac2-37f1c1236759",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "8daf8324-4cc2-4749-9d53-158ac2b7cffc",
+            "actions": [
+                {
+                    "name": "Close Game",
+                    "type": "Button",
+                    "id": "97b0f656-de9d-479b-b861-6ad338f79372",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4376d2c8-9843-4690-a291-7f3d586f3667",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close Game",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
