@@ -50,7 +50,16 @@ public class InputManager : MonoBehaviour
     }
 
 
-    # endregion Block
+    #endregion Block
+
+    #region Player Movement
+
+    public bool GetScreenPressed()
+    {
+        return playerControls.Player.Move.triggered;
+    }
+
+    #endregion
 
     public string DoAThing()
     {

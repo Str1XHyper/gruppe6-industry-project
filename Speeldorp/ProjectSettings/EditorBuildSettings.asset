@@ -11,18 +11,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Photon/PhotonVoice/Demos/DemoVoicePun/DemoVoicePun-Scene.unity
     guid: a3f3c3b3816924199acba595045624d2
-    path: Assets/Scenes/Julian.unity
-    guid: da318a73ff351864e894c489a80109b2
   - enabled: 0
     path: Assets/Scenes/Julian2.unity
     guid: d9550d0ec48b429479a05a28e74bb8d6
   - enabled: 1
     path: Assets/Scenes/Loading.unity
     guid: 0152e0fd7d62e7049b5af1b9191da3c0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PhysicsBlocks.unity
     guid: c64ea5fe516043b4abf1723e7aeca723
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Dorp.unity
     guid: d2ecd2f93733caa46b72ee1790ebcb19
   - enabled: 0
