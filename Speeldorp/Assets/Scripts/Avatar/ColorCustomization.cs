@@ -3,39 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ColorCustomization : MonoBehaviour, ICustomization
+public class ColorCustomization : Customization
 {
     [SerializeField]
     private List<Color32> backgroundColors;
     public RawImage colorpreview;
     public RawImage backgroundImage;
     public int colorindex;
-    public void ChangeItem(bool next)
+    public override void ChangeItem(bool next)
     {
         //Check if the next option is true, otherwhise it will go to the previous color
         if (next)
         {
-            colorindex++;
-            if (colorindex > (backgroundColors.Count - 1))
+            index++;
+            if (index > (backgroundColors.Count - 1))
             {
-                colorindex = 0;
+                index = 0;
             }
         }
         else
         {
-            colorindex--;
-            if (colorindex < 0)
+            index--;
+            if (index < 0)
             {
-                colorindex = (backgroundColors.Count - 1);
+                index = (backgroundColors.Count - 1);
             }
         }
         SetCurrentItem();                                                     
     }
 
-    public void SetCurrentItem()
+    public override void SetCurrentItem()
     {
-        colorpreview.color = backgroundColors[colorindex];
+        colorpreview.color = backgroundColors[index];
         backgroundImage.color = colorpreview.color;
     }
 
+    public override void SetRandom()
+    {
+        index = Random.Range(0, backgroundColors.Count);
+        SetCurrentItem();
+    }
 }

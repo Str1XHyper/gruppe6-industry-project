@@ -3,38 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ImageCustomization : MonoBehaviour, ICustomization
+public class ImageCustomization : Customization
 {
     [SerializeField]
     private List<Texture> textures;
     public RawImage texturepreview;
     public RawImage textureimage;
     public int textureindex;
-    public void ChangeItem(bool next)
+    public override void ChangeItem(bool next)
     {
         //Check if the next option is true, otherwhise it will go to the previous color
         if (next)
         {
-            textureindex++;
-            if (textureindex > (textures.Count - 1))
+            index++;
+            if (index > (textures.Count - 1))
             {
-                textureindex = 0;
+                index = 0;
             }
         }
         else
         {
-            textureindex--;
-            if (textureindex < 0)
+            index--;
+            if (index < 0)
             {
-                textureindex = (textures.Count - 1);
+                index = (textures.Count - 1);
             }
         }
         SetCurrentItem();
     }
 
-    public void SetCurrentItem()
+    public override void SetCurrentItem()
     {
-        texturepreview.texture = textures[textureindex];
+        texturepreview.texture = textures[index];
         textureimage.texture = texturepreview.texture;
     }
+
+    public override void SetRandom()
+    {
+        index = Random.Range(0, textures.Count);
+        SetCurrentItem();
+    }
+
+
 }
