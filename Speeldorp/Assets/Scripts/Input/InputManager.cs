@@ -61,9 +61,4 @@ public class InputManager : MonoBehaviour
 
     #endregion
 
-    public string DoAThing()
-    {
-        return "Doing the thing";
-    }
-
 }

@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class BlockClickHandler : MonoBehaviour
 {
-    Camera camera;
     private GameObject currentTarget;
     private Rigidbody targetRigidBody;
     private bool isHolding = false;
@@ -16,7 +15,6 @@ public class BlockClickHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera = GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -43,7 +41,7 @@ public class BlockClickHandler : MonoBehaviour
 
     private void SelectBlockToMove()
     {
-        Ray ray = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {

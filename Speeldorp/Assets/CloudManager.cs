@@ -9,12 +9,16 @@ public class CloudManager : MonoBehaviour
     public GameObject[] BackClouds;
     public bool IsSpawningClouds;
 
+    [Header("Spawn Restrictions")]
+    public float maxY;
+    public float minY;
+
 
     private IEnumerator SpawnClouds(GameObject[] SpawnedArray, float timeMultiplier) 
     {
         while (IsSpawningClouds)  
         {
-            float yOffset = Random.Range(-1f, 1f);
+            float yOffset = Random.Range(minY, maxY);
             int index = Random.Range(1, SpawnedArray.Length);
 
             var temp = SpawnedArray[index];

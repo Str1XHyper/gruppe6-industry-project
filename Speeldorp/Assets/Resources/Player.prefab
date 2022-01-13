@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 170267123}
   - component: {fileID: 170267122}
   - component: {fileID: 170267121}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Highlighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 292163946}
   - component: {fileID: 292163948}
   - component: {fileID: 292163947}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Recorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 867574649}
   - component: {fileID: 867574651}
   - component: {fileID: 867574650}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Speaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,9 +285,9 @@ GameObject:
   - component: {fileID: 3113562323104356094}
   - component: {fileID: 29115902}
   - component: {fileID: 5785014241853684687}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,8 +366,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.1
+  m_Height: 0.1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &816199350
@@ -570,6 +570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b18729274faa043966e5dcabe7e235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minY: -5
-  maxY: -3
+  minY: -8.75
+  maxY: -6.25
   lerpDuration: 1

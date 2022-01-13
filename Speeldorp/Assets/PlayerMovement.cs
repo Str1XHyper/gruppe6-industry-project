@@ -30,8 +30,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (InputManager.instance.GetScreenPressed())
         {
+            StopAllCoroutines();
             Move();
         }
+    }
+    public void SetPlayerLimits(float minY, float maxY)
+    {
+        this.minY = minY;
+        this.maxY = maxY;
     }
 
     private void Move()
