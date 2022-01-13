@@ -16,6 +16,7 @@ public class Interactive : MonoBehaviour
     [Tooltip("Optional Interactions")]
     ParticleSystem _particle;
     Animator _animator;
+    public string AnimationName;
     AudioSource _sound;
     [Header("References")]
     [SerializeField] private InputProcessor inputProcessor;
@@ -27,9 +28,9 @@ public class Interactive : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-            _animator = GetComponent<Animator>();
-            _particle = GetComponent<ParticleSystem>();
-            _sound = GetComponent<AudioSource>();
+            _animator = GetComponentInChildren<Animator>();
+            _particle = GetComponentInChildren<ParticleSystem>();
+            _sound = GetComponentInChildren<AudioSource>();
 
     }
 
@@ -115,6 +116,6 @@ public class Interactive : MonoBehaviour
     }
     void PlayAnimation()
     {
-        _animator.Play("Interaction");
+        _animator.Play(AnimationName);
     }
 }
