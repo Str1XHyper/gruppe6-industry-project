@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ColoredFloorManager : MonoBehaviour
 {
@@ -11,16 +12,15 @@ public class ColoredFloorManager : MonoBehaviour
         foreach (Transform child in transform)
         {
             child.GetComponent<ColoredBlock>().SetMaterials(ColoredMaterials);
-            int index = Random.Range(0, ColoredMaterials.Length);
-            child.GetComponent<ColoredBlock>().SetColor(index);
+            child.GetComponent<ColoredBlock>().SetColor(0);
         }
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (InputManager.instance.GetBlockInteractStart() && InputManager.instance.GetBlockInteractHolding())
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
