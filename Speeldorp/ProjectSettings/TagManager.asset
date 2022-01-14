@@ -9,6 +9,7 @@ TagManager:
   - SelectableBlock
   - Movable
   - Colored Block
+  - Interaction
   layers:
   - Default
   - TransparentFX
