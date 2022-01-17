@@ -40,9 +40,9 @@ public class AvatarManager : MonoBehaviour
     }
     public void Randomize()
     {
-        foreach (Customization i in customizables)
+        foreach (Customization c in customizables)
         {
-            i.SetRandom();
+            c.SetRandom();
         }
     }
 }
