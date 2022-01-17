@@ -6,23 +6,23 @@ using UnityEngine.UI;
 public class PlayerAvatarManager : MonoBehaviour
 {
     [Tooltip("All Textures")]
-    public RawImage background;
-    public RawImage icon;
-    public RawImage eyes;
-    public RawImage mouth;
-    public RawImage hat;
+    public SpriteRenderer background;
+    public SpriteRenderer icon;
+    public SpriteRenderer eyes;
+    public SpriteRenderer mouth;
+    public SpriteRenderer hat;
 
     [Tooltip("Lists of Options")]
     [SerializeField]
     private List<Color32> backgroundColors;
     [SerializeField]
-    private List<Texture> icons;
+    private List<Sprite> icons;
     [SerializeField]
-    private List<Texture> textureEyes;
+    private List<Sprite> textureEyes;
     [SerializeField]
-    private List<Texture> textureMouthes;
+    private List<Sprite> textureMouthes;
     [SerializeField]
-    private List<Texture> textureHats;
+    private List<Sprite> textureHats;
 
     private int backgroundIndex;
     private int iconIndex;
@@ -36,11 +36,16 @@ public class PlayerAvatarManager : MonoBehaviour
     private void Start()
     {
         avatar.LoadData();
-        AssignIndexes();
-        Setup();
+        Initialize();
 
     }
-    
+
+    public void Initialize()
+    {
+        AssignIndexes();
+        Setup();
+    }
+
     void AssignIndexes()
     {
         backgroundIndex = avatar.BGIndex;
@@ -52,9 +57,9 @@ public class PlayerAvatarManager : MonoBehaviour
     void Setup()
     {
         background.color = backgroundColors[backgroundIndex];
-        icon.texture = icons[iconIndex];
-        eyes.texture = textureEyes[eyesIndex];
-        mouth.texture = textureMouthes[mouthIndex];
-        hat.texture = textureHats[hatIndex];
+        icon.sprite = icons[iconIndex];
+        eyes.sprite = textureEyes[eyesIndex];
+        mouth.sprite = textureMouthes[mouthIndex];
+        hat.sprite = textureHats[hatIndex];
     }
 }

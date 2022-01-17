@@ -8,6 +8,8 @@ public class AvatarManager : MonoBehaviour
 
     [SerializeField]
     private AvatarID avatar;
+    [SerializeField]
+    private PlayerAvatarManager player;
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class AvatarManager : MonoBehaviour
         avatar.MouthIndex = customizables[3].index;
         avatar.HatIndex = customizables[4].index;
         avatar.SaveData();
+        player.Initialize();
     }
 
     void SetUp()

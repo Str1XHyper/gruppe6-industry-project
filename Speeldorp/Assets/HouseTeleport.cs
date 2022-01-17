@@ -15,6 +15,7 @@ public class HouseTeleport : MonoBehaviour
 
     private bool isColliding;
 
+
     private void OnTriggerEnter(Collider other)
     {
         var photonView = other.GetComponent<PhotonView>();
@@ -45,6 +46,7 @@ public class HouseTeleport : MonoBehaviour
             other.GetComponent<PlayerMovement>().StopAllCoroutines();
             other.transform.position = PlayerTPLocation.position;
             newActiveCam.m_Priority += 2;
+
         }
     }
 }
