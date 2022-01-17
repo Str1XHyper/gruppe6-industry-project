@@ -1,30 +1,27 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AudioClickHandler : MonoBehaviour
 {
     [SerializeField] private AudioSource source;
-    void Start()
-    {
-        
-    }
 
-    void Update()
+    void Update()   
     {
-        if (Input.GetMouseButtonDown(0))
+        if (InputManager.instance.GetScreenPressed())
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.transform.CompareTag("SoundBlock"))
                 {
-                    StartCoroutine(hit.transform.gameObject.GetComponent<ParticleEmitter>().Emit());
-                    source.clip = hit.transform.gameObject.GetComponent<CollisionClickHandler>().clip;
-                    source.Play();
+                    hit.collider.GetComponent<CollisionClickHandler>().EmitRPC();
                 }
             }
         }
     }
+
 }

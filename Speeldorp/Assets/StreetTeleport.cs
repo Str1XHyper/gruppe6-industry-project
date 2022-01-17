@@ -1,4 +1,5 @@
 using Cinemachine;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,10 +14,10 @@ public class StreetTeleport : MonoBehaviour
     private float newMinY, newMaxY;
 
     private bool isColliding;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        var photonView = other.GetComponent<PhotonView>();
+        if (other.tag == "Player" && photonView.IsMine)
         {
             isColliding = true;
             StartCoroutine(SecondCheck(other));
@@ -25,7 +26,8 @@ public class StreetTeleport : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        var photonView = other.GetComponent<PhotonView>();
+        if (other.tag == "Player" && photonView.IsMine)
         {
             isColliding = false;
             StopAllCoroutines();
@@ -35,7 +37,8 @@ public class StreetTeleport : MonoBehaviour
     private IEnumerator SecondCheck(Collider other)
     {
         yield return new WaitForSeconds(1);
-        if (isColliding)
+        var photonView = other.GetComponent<PhotonView>();
+        if (isColliding && photonView.IsMine)
         {
             other.GetComponent<PlayerMovement>().SetPlayerLimits(newMinY, newMaxY);
             other.GetComponent<PlayerMovement>().StopAllCoroutines();

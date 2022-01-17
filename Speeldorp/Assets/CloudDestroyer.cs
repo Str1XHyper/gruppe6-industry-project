@@ -6,6 +6,6 @@ public class CloudDestroyer : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        if(other.tag == "Cloud") Destroy(other.gameObject);
     }
 }
