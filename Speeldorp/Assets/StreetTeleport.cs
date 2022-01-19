@@ -42,6 +42,11 @@ public class StreetTeleport : MonoBehaviour
         {
             other.GetComponent<PlayerMovement>().SetPlayerLimits(newMinY, newMaxY);
             other.GetComponent<PlayerMovement>().StopAllCoroutines();
+            var toggle = GetComponentInParent<ToggleUI>();
+            if (toggle)
+            {
+                toggle.ToggleAC(toggle.toggle);
+            }
             other.transform.position = PlayerTPLocation.position;
             other.GetComponent<PlayerAvatarManager>().Initialize();
             currentActiveCam.m_Priority = 10;

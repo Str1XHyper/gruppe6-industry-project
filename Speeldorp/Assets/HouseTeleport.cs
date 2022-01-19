@@ -44,6 +44,11 @@ public class HouseTeleport : MonoBehaviour
         {
             other.GetComponent<PlayerMovement>().SetPlayerLimits(newMinY, newMaxY);
             other.GetComponent<PlayerMovement>().StopAllCoroutines();
+            var toggle = GetComponentInParent<ToggleUI>();
+            if(toggle)
+            {
+                toggle.ToggleAC(toggle.toggle);
+            }
             other.transform.position = PlayerTPLocation.position;
             newActiveCam.m_Priority += 2;
 
