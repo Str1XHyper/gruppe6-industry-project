@@ -43,7 +43,7 @@ public class PlayerAvatarManager : MonoBehaviour
     public void Initialize()
     {
         AssignIndexes();
-        //Setup();
+        Setup();
     }
 
     void AssignIndexes()

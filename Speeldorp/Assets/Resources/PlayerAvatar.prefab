@@ -70,8 +70,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 22
-  m_Sprite: {fileID: 21300000, guid: ed9583fee5a490f4797f888dc8d17828, type: 3}
+  m_SortingOrder: 27
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 3.12, y: 0.63}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &433577725492080085
@@ -260,16 +260,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 22
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: 27
+  m_Sprite: {fileID: 21300000, guid: 39388452cc08c294aabbe7fe3f0b6b8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.9, y: 1.49}
+  m_Size: {x: 2.41, y: 1.22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2171670561773383503
@@ -332,7 +332,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!114 &5701219421704457430
 MonoBehaviour:
@@ -458,7 +458,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 22
+  m_SortingOrder: 27
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -784,7 +784,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 19
   m_Sprite: {fileID: 21300000, guid: 822a8ba824bd40c488cea3753ecf3a0d, type: 3}
-  m_Color: {r: 0.9843137, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -858,19 +858,19 @@ MonoBehaviour:
   - serializedVersion: 2
     rgba: 4278190335
   - serializedVersion: 2
-    rgba: 4278228479
+    rgba: 4278222335
   - serializedVersion: 2
-    rgba: 4278255611
+    rgba: 4278253823
   - serializedVersion: 2
-    rgba: 4278255402
+    rgba: 4278255439
   - serializedVersion: 2
-    rgba: 4294954496
+    rgba: 4294959872
   - serializedVersion: 2
-    rgba: 4294910976
+    rgba: 4294915328
   - serializedVersion: 2
-    rgba: 4294901904
+    rgba: 4294901911
   - serializedVersion: 2
-    rgba: 4290969855
+    rgba: 4289724671
   - serializedVersion: 2
     rgba: 4294967295
   - serializedVersion: 2
@@ -883,19 +883,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 50f7b417e3f57ec44ad54eb3ad24f8ac, type: 3}
   - {fileID: 21300000, guid: 26f81437b125e0e48a93d1297dc99250, type: 3}
   textureEyes:
-  - {fileID: 2800000, guid: 58f947240550019438108f3a13f91132, type: 3}
+  - {fileID: 0}
   - {fileID: 21300000, guid: 6ee4a5f2776e796448bcf768c0e906f1, type: 3}
   - {fileID: 21300000, guid: ed9583fee5a490f4797f888dc8d17828, type: 3}
   - {fileID: 21300000, guid: 53cd3cdffb0c5f34a9845de5227233e3, type: 3}
   - {fileID: 21300000, guid: 4979e01c6da3ee84f8275104545a5414, type: 3}
   textureMouthes:
-  - {fileID: 2800000, guid: 58f947240550019438108f3a13f91132, type: 3}
+  - {fileID: 0}
   - {fileID: 21300000, guid: 5d6f38603ee84364c800f5f95cfe59f1, type: 3}
   - {fileID: 21300000, guid: 562ff6866b6177a4f8a82713728253a3, type: 3}
   - {fileID: 21300000, guid: ee916e174c97c7e42949212bbe868575, type: 3}
   - {fileID: 21300000, guid: b2bbe2868b3a1c943b59335581f86f8e, type: 3}
   textureHats:
-  - {fileID: 2800000, guid: 58f947240550019438108f3a13f91132, type: 3}
+  - {fileID: 0}
   - {fileID: 21300000, guid: 435a32a8d206e884cbbe2ebd9ff2832b, type: 3}
   - {fileID: 21300000, guid: 4910ac6c371192c4c8faa451dc8e2f38, type: 3}
   - {fileID: 21300000, guid: 39388452cc08c294aabbe7fe3f0b6b8e, type: 3}
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
   unityMicrophoneDevice: 
-  photonMicrophoneDeviceId: -1
+  photonMicrophoneDeviceId: 0
   interestGroup: 0
   debugEchoMode: 0
   reliableMode: 0

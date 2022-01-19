@@ -43,6 +43,7 @@ public class StreetTeleport : MonoBehaviour
             other.GetComponent<PlayerMovement>().SetPlayerLimits(newMinY, newMaxY);
             other.GetComponent<PlayerMovement>().StopAllCoroutines();
             other.transform.position = PlayerTPLocation.position;
+            other.GetComponent<PlayerAvatarManager>().Initialize();
             currentActiveCam.m_Priority = 10;
         }
     }
