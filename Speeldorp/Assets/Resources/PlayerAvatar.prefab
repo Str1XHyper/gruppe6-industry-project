@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7840079306229354006}
   - component: {fileID: 1718872694122996292}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EyesAccessory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,15 +71,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 27
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6ee4a5f2776e796448bcf768c0e906f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.59, y: 0.86}
+  m_Size: {x: 3.12, y: 0.63}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &433577725492080085
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8791411364970977281}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,8 +181,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602762341826694785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.08, y: 1.14, z: 0}
-  m_LocalScale: {x: 0.7625, y: 0.74995, z: 1}
+  m_LocalPosition: {x: -0.35, y: 1.14, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 1767796026695622501}
   - {fileID: 1442252015465265233}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7269844772205034631}
   - component: {fileID: 1080003707946913711}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HatAccessory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1, y: 1.78}
+  m_AnchoredPosition: {x: 0, y: 1.78}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3872234671232169861
@@ -398,7 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6620281015189924988}
   - component: {fileID: 1687810840401843825}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MouthAccessory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1442252015465265233}
   - component: {fileID: 1249932463607526157}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1767796026695622501}
   - component: {fileID: 2981444304938066482}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3133697059363269855}
   - component: {fileID: 8329367377837040258}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,7 +784,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 19
   m_Sprite: {fileID: 21300000, guid: 822a8ba824bd40c488cea3753ecf3a0d, type: 3}
-  m_Color: {r: 0, g: 0.8901961, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.49019608, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -814,7 +814,7 @@ GameObject:
   - component: {fileID: -6257809349673691021}
   - component: {fileID: 2353969976838775751}
   - component: {fileID: -496789659690676071}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerAvatar
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -901,6 +901,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 39388452cc08c294aabbe7fe3f0b6b8e, type: 3}
   - {fileID: 21300000, guid: 327864f65acfd12458b5ba74b9d8b058, type: 3}
   avatar: {fileID: 11400000, guid: 9520e25b8c4214a4cbe86ad5968245f9, type: 2}
+  photonView: {fileID: 2112422627485055655}
 --- !u!114 &6972799756896020985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,6 +972,7 @@ MonoBehaviour:
   minY: -8.75
   maxY: -6.25
   lerpDuration: 1
+  recorder: {fileID: -496789659690676071}
 --- !u!114 &2112422627485055655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,7 +987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObservedComponentsFoldoutOpen: 1
   Group: 0
-  prefixField: -1
+  prefixField: 0
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
@@ -1033,10 +1035,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0
   MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1183,11 +1185,11 @@ MonoBehaviour:
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
   unityMicrophoneDevice: 
-  photonMicrophoneDeviceId: -1
+  photonMicrophoneDeviceId: 0
   interestGroup: 0
   debugEchoMode: 0
   reliableMode: 0
-  encrypt: 1
+  encrypt: 0
   transmitEnabled: 1
   samplingRate: 48000
   frameDuration: 20000

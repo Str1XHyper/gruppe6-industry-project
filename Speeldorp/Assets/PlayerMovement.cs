@@ -1,4 +1,6 @@
 using Photon.Pun;
+using Photon.Voice.PUN;
+using Photon.Voice.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private float lerpDuration;
 
     private PhotonView photonView;
+    public Recorder recorder;
 
     private void Start()
     {
@@ -33,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
             StopAllCoroutines();
             Move();
         }
+
+        recorder.TransmitEnabled = InputManager.instance.GetPushToTalkDown();
     }
     public void SetPlayerLimits(float minY, float maxY)
     {

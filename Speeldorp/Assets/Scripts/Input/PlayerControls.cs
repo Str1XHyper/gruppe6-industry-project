@@ -25,6 +25,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Push to Talk"",
+                    ""type"": ""Button"",
+                    ""id"": ""668c56f1-0659-4f60-aeb1-55ceff18b35b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -47,6 +55,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84cce0ef-302c-4fc4-a4a8-aa7789dbac0f"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Push to Talk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -112,6 +131,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_PushtoTalk = m_Player.FindAction("Push to Talk", throwIfNotFound: true);
         // Blocks
         m_Blocks = asset.FindActionMap("Blocks", throwIfNotFound: true);
         m_Blocks_Interact = m_Blocks.FindAction("Interact", throwIfNotFound: true);
@@ -168,11 +188,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_PushtoTalk;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @PushtoTalk => m_Wrapper.m_Player_PushtoTalk;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -185,6 +207,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @PushtoTalk.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPushtoTalk;
+                @PushtoTalk.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPushtoTalk;
+                @PushtoTalk.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPushtoTalk;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -192,6 +217,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @PushtoTalk.started += instance.OnPushtoTalk;
+                @PushtoTalk.performed += instance.OnPushtoTalk;
+                @PushtoTalk.canceled += instance.OnPushtoTalk;
             }
         }
     }
@@ -265,6 +293,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnPushtoTalk(InputAction.CallbackContext context);
     }
     public interface IBlocksActions
     {

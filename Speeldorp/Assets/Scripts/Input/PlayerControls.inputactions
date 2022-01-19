@@ -12,6 +12,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Push to Talk",
+                    "type": "Button",
+                    "id": "668c56f1-0659-4f60-aeb1-55ceff18b35b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -34,6 +42,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84cce0ef-302c-4fc4-a4a8-aa7789dbac0f",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Push to Talk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,18 +33,18 @@ public class PlayerAvatarManager : MonoBehaviour
 
     [SerializeField]
     private AvatarID avatar;
+    public PhotonView photonView;
 
     private void Start()
     {
         avatar.LoadData();
         Initialize();
-
     }
 
     public void Initialize()
     {
         AssignIndexes();
-        Setup();
+        photonView.RPC("Setup", RpcTarget.All);
     }
 
     void AssignIndexes()
@@ -54,6 +55,8 @@ public class PlayerAvatarManager : MonoBehaviour
         mouthIndex = avatar.MouthIndex;
         hatIndex = avatar.HatIndex;
     }
+
+    [PunRPC]
     void Setup()
     {
         background.color = backgroundColors[backgroundIndex];

@@ -61,4 +61,5 @@ public class InputManager : MonoBehaviour
 
     #endregion
 
+    public bool GetPushToTalkDown() => playerControls.Player.PushtoTalk.ReadValue<float>() > 0;
 }
